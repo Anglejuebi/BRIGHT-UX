@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BRIGHT 智能阅片系统｜从切片阅览，到结构化标注</title>
+  <meta name="description" content="BRIGHT 把切片阅片、同屏对照、结果图层、结构化标注与团队管理放在同一套界面里。真实系统界面实录，演示数据已匿名化。">
+  <meta name="theme-color" content="#FCF8FB">
+  <link rel="canonical" href="https://anglejuebi.github.io/BRIGHT-UX/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="BRIGHT 智能阅片系统">
+  <meta property="og:title" content="BRIGHT 智能阅片系统｜从切片阅览，到结构化标注">
+  <meta property="og:description" content="同一套界面里的阅片、对照、结果图层、结构化标注与团队管理。">
+  <meta property="og:url" content="https://anglejuebi.github.io/BRIGHT-UX/">
+  <meta property="og:image" content="https://anglejuebi.github.io/BRIGHT-UX/assets/img/og-bright.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BRIGHT 智能阅片系统">
+  <meta name="twitter:description" content="从切片阅览，到结构化标注。">
+  <meta name="twitter:image" content="https://anglejuebi.github.io/BRIGHT-UX/assets/img/og-bright.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/img/bright-reading-detail.webp" imagesrcset="assets/img/bright-reading-detail-960.webp 960w, assets/img/bright-reading-detail.webp 1440w" imagesizes="(max-width: 900px) 92vw, 1240px" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      try {
+        var saved = localStorage.getItem('bright-motion');
+        var off = saved ? saved === 'off' : window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (off) root.classList.add('motion-off');
+      } catch (e) {}
+      root.classList.add('js');
+    })();
+  </script>
+  <script src="assets/js/config.js"></script>
+  <script type="module" src="assets/js/app.js"></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header" id="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#overview" aria-label="BRIGHT 智能阅片系统，回到产品概览">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+        <span class="brand-name">BRIGHT</span>
+        <span class="brand-sub">智能阅片系统</span>
+      </a>
+
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#overview" data-nav="overview">产品概览</a>
+        <a href="#reading" data-nav="reading">阅片与对照</a>
+        <a href="#annotation" data-nav="annotation">标注工作流</a>
+        <a href="#team" data-nav="team">团队管理</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary btn-nav" data-app-link href="http://192.168.20.43:8081/" target="_blank" rel="noopener">
+          进入系统
+          <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="打开菜单">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="移动端导航">
+        <a href="#overview" data-nav-mobile>产品概览</a>
+        <a href="#reading" data-nav-mobile>阅片与对照</a>
+        <a href="#annotation" data-nav-mobile>标注工作流</a>
+        <a href="#team" data-nav-mobile>团队管理</a>
+        <a class="btn btn-primary" data-app-link href="http://192.168.20.43:8081/" target="_blank" rel="noopener">进入系统</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="overview" aria-labelledby="hero-title">
+      <canvas class="particle-canvas" id="particle-canvas" aria-hidden="true"></canvas>
+      <div class="container hero-inner">
+        <p class="eyebrow reveal-hero">BRIGHT · 病理阅片与标注工作台</p>
+        <h1 id="hero-title" class="reveal-hero">从切片阅览，<br>到结构化标注。</h1>
+        <p class="hero-lead reveal-hero">BRIGHT 把阅片、对照、结果图层、结构化标注与团队管理放在同一套界面里。少一次切换，多一层可回看的上下文。</p>
+        <div class="hero-actions reveal-hero">
+          <a class="btn btn-primary" data-app-link href="http://192.168.20.43:8081/" target="_blank" rel="noopener">
+            进入系统
+            <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#reading">查看真实界面</a>
+        </div>
+        <p class="hero-meta reveal-hero"><span class="meta-dot" aria-hidden="true"></span>系统界面实录 · 版本 V0.3.1-261019</p>
+      </div>
+
+      <div class="container hero-visual reveal-hero">
+        <figure class="window">
+          <button class="media-open" type="button" data-lightbox data-title="阅片与对照" data-note="系统界面实录 · 演示数据已匿名化" aria-label="放大查看 BRIGHT 阅片界面截图">
+            <img src="assets/img/bright-reading-detail.webp" srcset="assets/img/bright-reading-detail-960.webp 960w, assets/img/bright-reading-detail.webp 1440w" sizes="(max-width: 900px) 92vw, 1240px" width="1440" height="900" fetchpriority="high" decoding="async" alt="BRIGHT 阅片界面：左侧为原始 H&E 切片，右侧为分割标注结果，顶部工具栏显示 5.2X 倍率与对照查看。">
+          </button>
+          <figcaption class="window-caption">
+            <span>314 切片 · 5.2X · 左右对照</span>
+            <span class="caption-tag">系统界面实录</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="reading" aria-labelledby="reading-title">
+      <div class="container">
+        <header class="section-head split-head reveal">
+          <div>
+            <p class="section-index">01 / 阅片与对照</p>
+            <h2 id="reading-title">先看清，再对照。</h2>
+          </div>
+          <p class="section-lead">同一张切片，左侧原始图像，右侧标注结果。倍率、图层与位置都在同一屏里，比较不必来回找位置。</p>
+        </header>
+
+        <div class="reading-grid">
+          <div class="reading-copy reveal">
+            <ul class="feature-list">
+              <li>
+                <strong>同屏对照</strong>
+                原始图像与结果并排，视线不用在两个窗口之间跳。
+              </li>
+              <li>
+                <strong>倍率可读</strong>
+                0.2X 看全局，5.2X 看细节；当前倍率始终在工具栏上。
+              </li>
+              <li>
+                <strong>图层可切换</strong>
+                真实标注、原配套 TIF 与结果图层，按需叠加查看。
+              </li>
+            </ul>
+
+            <div class="segmented" role="group" aria-label="切换阅片视野">
+              <button type="button" class="seg is-active" data-view="overview" aria-pressed="true">全局概览 <span>0.2X</span></button>
+              <button type="button" class="seg" data-view="detail" aria-pressed="false">局部视野 <span>5.2X</span></button>
+            </div>
+            <p class="fineprint">局部视野为同一系统内的高倍阅片界面，不是连续缩放动画。</p>
+          </div>
+
+          <figure class="media-card reading-stage reveal">
+            <button class="media-open" type="button" data-lightbox data-title="阅片与对照" data-note="系统界面实录 · 演示数据已匿名化" aria-label="放大查看当前阅片界面截图">
+              <img id="reading-image" src="assets/img/bright-reading-overview.webp" srcset="assets/img/bright-reading-overview-960.webp 960w, assets/img/bright-reading-overview.webp 1440w" sizes="(max-width: 980px) 92vw, 760px" width="1440" height="900" loading="lazy" decoding="async" alt="BRIGHT 阅片界面：314 切片 0.2X 全局概览，左右两侧分别显示原始图像与分割结果，右侧打开图层设置。">
+            </button>
+            <figcaption>
+              <span id="reading-caption">314 切片 · 全局概览 · 0.2X</span>
+              <span class="caption-tag">系统界面实录</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="compare-wrap reveal">
+          <div class="compare-copy">
+            <p class="section-index">同屏对照</p>
+            <h3>拖动一下，看看结果落在哪里。</h3>
+            <p>左右来自同一张 5.2X 截图。拖动分割线，对照原始图像与分割结果；松开后停在当前位置。</p>
+            <p class="fineprint">静态截图对比，不是实时联动。</p>
+          </div>
+          <figure class="compare">
+            <div class="compare-stage" style="--pos: 50%">
+              <img class="compare-base" src="assets/img/bright-compare-original.webp" width="579" height="777" loading="lazy" decoding="async" alt="5.2X 原始 H&E 图像局部">
+              <img class="compare-top" src="assets/img/bright-compare-segmentation.webp" width="579" height="777" loading="lazy" decoding="async" alt="同一视野的分割标注结果">
+              <span class="compare-label compare-label-left">原始图像</span>
+              <span class="compare-label compare-label-right">分割结果</span>
+              <span class="compare-handle" aria-hidden="true"><span></span></span>
+              <input class="compare-range" type="range" min="0" max="100" step="1" value="50" aria-label="拖动对比原始图像与分割结果">
+            </div>
+            <figcaption class="compare-caption"><span>5.2X · 同一视野</span><span>截图演示</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="layers" aria-labelledby="layers-title">
+      <div class="container">
+        <header class="section-head center reveal">
+          <p class="section-index">02 / 结果图层</p>
+          <h2 id="layers-title">一张切片，三种看法。</h2>
+          <p class="section-lead">分割标注、虚拟 IHC 与虚拟热图共享同一视野。切换图层，比较不必重新找位置。</p>
+        </header>
+
+        <div class="tabs-wrap reveal">
+          <div class="tabs" role="tablist" aria-label="结果图层" id="layer-tabs">
+            <button type="button" role="tab" id="tab-seg" aria-controls="panel-seg" aria-selected="true" tabindex="0">分割标注</button>
+            <button type="button" role="tab" id="tab-ihc" aria-controls="panel-ihc" aria-selected="false" tabindex="-1">虚拟 IHC</button>
+            <button type="button" role="tab" id="tab-heatmap" aria-controls="panel-heatmap" aria-selected="false" tabindex="-1">虚拟热图</button>
+          </div>
+        </div>
+
+        <div class="layer-stage reveal">
+          <div class="layer-panel is-active" id="panel-seg" role="tabpanel" aria-labelledby="tab-seg" tabindex="0">
+            <figure class="media-card layer-card">
+              <button class="media-open" type="button" data-lightbox data-title="分割标注图层" data-note="系统界面实录 · 演示数据已匿名化" aria-label="放大查看分割标注图层截图">
+                <img src="assets/img/bright-reading-overview.webp" srcset="assets/img/bright-reading-overview-960.webp 960w, assets/img/bright-reading-overview.webp 1440w" sizes="(max-width: 900px) 92vw, 1040px" width="1440" height="900" loading="lazy" decoding="async" alt="314 切片 0.2X 视图，左侧原始 H&E 图像，右侧分割标注与类别图层。">
+              </button>
+              <figcaption class="layer-caption">
+                <h3>分割标注</h3>
+                <p>在原始图像旁边查看分割结果与类别图层。图层可开关，不透明度可调；右侧打开的就是图层设置。</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="layer-panel" id="panel-ihc" role="tabpanel" aria-labelledby="tab-ihc" tabindex="0" hidden>
+            <figure class="media-card layer-card">
+              <button class="media-open" type="button" data-lightbox data-title="虚拟 IHC 图层" data-note="虚拟示意 · 系统界面实录" aria-label="放大查看虚拟 IHC 图层截图">
+                <img src="assets/img/bright-virtual-ihc.webp" srcset="assets/img/bright-virtual-ihc-960.webp 960w, assets/img/bright-virtual-ihc.webp 1440w" sizes="(max-width: 900px) 92vw, 1040px" width="1440" height="900" loading="lazy" decoding="async" alt="同一视野的虚拟 IHC 图层，右侧呈棕蓝色虚拟染色效果，界面标注为虚拟 IHC。">
+              </button>
+              <figcaption class="layer-caption">
+                <h3>虚拟 IHC</h3>
+                <p>以虚拟染色图层辅助观察组织结构。界面中明确标注为虚拟 IHC，属于虚拟示意，不是真实染色结果。</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="layer-panel" id="panel-heatmap" role="tabpanel" aria-labelledby="tab-heatmap" tabindex="0" hidden>
+            <figure class="media-card layer-card">
+              <button class="media-open" type="button" data-lightbox data-title="虚拟热图图层" data-note="虚拟示意 · 系统界面实录" aria-label="放大查看虚拟热图图层截图">
+                <img src="assets/img/bright-virtual-heatmap.webp" srcset="assets/img/bright-virtual-heatmap-960.webp 960w, assets/img/bright-virtual-heatmap.webp 1440w" sizes="(max-width: 900px) 92vw, 1040px" width="1440" height="900" loading="lazy" decoding="async" alt="同一视野的虚拟热图图层，右侧呈蓝绿黄红的热图分布，界面标注为虚拟热图。">
+              </button>
+              <figcaption class="layer-caption">
+                <h3>虚拟热图</h3>
+                <p>以热图图层呈现区域分布，便于快速定位。热图为界面中的虚拟示意，不代表模型预测或临床结论。</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="layer-controls reveal">
+          <button type="button" class="btn btn-ghost btn-sm" id="play-layers" aria-pressed="false">自动演示一次</button>
+          <span class="fineprint">只播放一轮，停在此页，不循环。</span>
+        </div>
+
+        <aside class="honesty reveal">
+          <strong>说明</strong>
+          虚拟 IHC 与虚拟热图为系统界面中的虚拟示意 / 模拟展示，不是模型预测结论，也不用于临床诊断。
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="annotation" aria-labelledby="annotation-title">
+      <div class="container">
+        <header class="section-head split-head reveal">
+          <div>
+            <p class="section-index">03 / 标注工作流</p>
+            <h2 id="annotation-title">从轮廓，到可管理的结果。</h2>
+          </div>
+          <p class="section-lead">标注不是一段被剪快的录屏。它由明确的动作组成：勾勒、调整、归类，最后形成可回看的草稿与版本。</p>
+        </header>
+
+        <div class="annotation-grid">
+          <div class="annotation-steps reveal">
+            <ol class="steps" id="steps">
+              <li style="--i: 0">
+                <span class="step-num" aria-hidden="true">01</span>
+                <h3>勾勒区域</h3>
+                <p>用勾画或多边形工具圈定关注区域。</p>
+              </li>
+              <li style="--i: 1">
+                <span class="step-num" aria-hidden="true">02</span>
+                <h3>调整边界</h3>
+                <p>编辑顶点，修正轮廓与组织边界。</p>
+              </li>
+              <li style="--i: 2">
+                <span class="step-num" aria-hidden="true">03</span>
+                <h3>分配类别</h3>
+                <p>为区域选择类别，让轮廓带上语义。</p>
+              </li>
+              <li style="--i: 3">
+                <span class="step-num" aria-hidden="true">04</span>
+                <h3>草稿与成果</h3>
+                <p>保存草稿、推进版本；完成后进入导出与管理。</p>
+              </li>
+            </ol>
+            <p class="fineprint">滚动到此处时，流程线只强调一次；页面不会接管滚动。</p>
+          </div>
+
+          <div class="annotation-media reveal">
+            <figure class="toolbar-figure">
+              <div class="toolbar-scroll" tabindex="0" aria-label="标注工具栏截图，窄屏可横向滚动">
+                <img src="assets/img/bright-annotation-toolbar.webp" width="1176" height="56" loading="lazy" decoding="async" alt="标注工具栏：勾画、多边形、编辑、撤销、重做、保存草稿、保存并下一张等按钮。">
+              </div>
+              <figcaption>真实工具栏 · 系统界面实录</figcaption>
+            </figure>
+
+            <figure class="media-card">
+              <button class="media-open" type="button" data-lightbox data-title="标注草稿 · 只读预览" data-note="系统界面实录 · 演示数据已匿名化" aria-label="放大查看管理员只读草稿预览截图">
+                <img src="assets/img/bright-draft-preview.webp" srcset="assets/img/bright-draft-preview-960.webp 960w, assets/img/bright-draft-preview.webp 1440w" sizes="(max-width: 980px) 92vw, 720px" width="1440" height="900" loading="lazy" decoding="async" alt="管理员只读草稿预览：左侧原始图像，右侧带轮廓的标注草稿，顶部显示未完成草稿 v29。">
+              </button>
+              <figcaption>
+                <span>管理员只读草稿预览 · v29 · 未完成</span>
+                <span class="caption-tag">只读预览</span>
+              </figcaption>
+            </figure>
+            <p class="fineprint">图为只读草稿预览，不是实时标注录制；空工作区截图不作为标注成果展示。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="upload" aria-labelledby="upload-title">
+      <div class="container">
+        <header class="section-head split-head reveal">
+          <div>
+            <p class="section-index">04 / 上传与流转</p>
+            <h2 id="upload-title">上传不是黑箱。</h2>
+          </div>
+          <p class="section-lead">文件从本地上传到可阅片，中间有校验、配对与进度。不同用途走不同路径，管理员和本人各自看到该看的状态。</p>
+        </header>
+
+        <div class="upload-grid">
+          <div class="upload-figure reveal">
+            <p class="hotspot-hint"><span aria-hidden="true">↘</span> 点击图中的数字，查看对应区域。</p>
+            <div class="hotspot-media">
+              <img id="upload-image" src="assets/img/bright-upload-workflow.webp" srcset="assets/img/bright-upload-workflow-800.webp 800w, assets/img/bright-upload-workflow.webp 1104w" sizes="(max-width: 980px) 92vw, 800px" width="1104" height="884" loading="lazy" decoding="async" alt="上传界面：上传用途、文件与配对、检查与进度三个区域，演示数据已匿名化。">
+              <button type="button" class="hotspot is-active" style="--x: 92%; --y: 17.2%" data-hotspot="purpose" aria-expanded="true" aria-controls="upload-copy" aria-label="查看上传用途说明"><span>1</span></button>
+              <button type="button" class="hotspot" style="--x: 92%; --y: 36.8%" data-hotspot="pairing" aria-expanded="false" aria-controls="upload-copy" aria-label="查看文件与配对说明"><span>2</span></button>
+              <button type="button" class="hotspot" style="--x: 92%; --y: 58.9%" data-hotspot="progress" aria-expanded="false" aria-controls="upload-copy" aria-label="查看检查与进度说明"><span>3</span></button>
+            </div>
+            <div class="upload-tools">
+              <p class="hotspot-legend">1 用途 · 2 文件与配对 · 3 检查与进度</p>
+              <button type="button" class="btn btn-ghost btn-sm upload-zoom" data-lightbox data-lightbox-target="#upload-image" data-title="上传与流转" data-note="系统界面实录 · 演示数据已匿名化">查看完整界面</button>
+            </div>
+          </div>
+
+          <div class="upload-panel reveal" id="upload-copy" aria-live="polite">
+            <div class="hotspot-copy" data-copy="purpose">
+              <p class="panel-kicker">01 / 上传用途</p>
+              <h3>先选用途。</h3>
+              <p>用于标注，还是仅作私有展示？用途决定后续流转，也决定谁需要看到这条上传记录。</p>
+              <ul class="panel-list">
+                <li><strong>用于标注</strong>：后台校验通过后，进入管理员审核与分配。</li>
+                <li><strong>私有展示</strong>：校验通过即可阅片，管理员做必要管理。</li>
+              </ul>
+            </div>
+            <div class="hotspot-copy" data-copy="pairing" hidden>
+              <p class="panel-kicker">02 / 文件与配对</p>
+              <h3>文件要成对，关系要明确。</h3>
+              <p>原图文件、完整多文件目录与可选配套文件分开选择。配套文件可以是热图、IHC 或分割标注。</p>
+              <ul class="panel-list">
+                <li>原图与配套文件必须明确配对。</li>
+                <li>已选配套文件会按实际通道与数据类型再次校验。</li>
+              </ul>
+            </div>
+            <div class="hotspot-copy" data-copy="progress" hidden>
+              <p class="panel-kicker">03 / 检查与进度</p>
+              <h3>上传之后，状态可见。</h3>
+              <p>校验、传输与处理进度在同一条记录里。完成之后，再决定打开阅片、查看处理状态，或继续新的上传计划。</p>
+              <ul class="panel-list">
+                <li>进度与服务器确认状态同时显示。</li>
+                <li>处理完成后可打开私有阅片。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="branches">
+          <article class="branch reveal">
+            <p class="branch-tag">用于标注</p>
+            <h3>进入协作与分配</h3>
+            <div class="flow" aria-label="用于标注的流转步骤">
+              <span>后台校验</span><i aria-hidden="true">→</i>
+              <span>管理员审核与分配</span><i aria-hidden="true">→</i>
+              <span>标注工作</span>
+            </div>
+            <p>适合需要多人协作、统一类别与版本管理的切片。</p>
+          </article>
+          <article class="branch reveal">
+            <p class="branch-tag">私有展示</p>
+            <h3>本人查看，管理员管理</h3>
+            <div class="flow" aria-label="私有展示的流转步骤">
+              <span>校验与对齐检查</span><i aria-hidden="true">→</i>
+              <span>本人查看</span><i aria-hidden="true">→</i>
+              <span>管理员管理</span>
+            </div>
+            <p>适合仅本人查看、暂不进入标注任务的切片；校验通过即可阅片。</p>
+          </article>
+        </div>
+        <p class="fineprint upload-note">以上为系统界面与流程说明；页面不提供上传表单，也不会上传任何文件。</p>
+      </div>
+    </section>
+
+    <section class="section" id="team" aria-labelledby="team-title">
+      <div class="container">
+        <header class="section-head split-head reveal">
+          <div>
+            <p class="section-index">05 / 团队管理</p>
+            <h2 id="team-title">切片、人员、状态、成果，<br>在同一张表里。</h2>
+          </div>
+          <p class="section-lead">任务分配之后，谁在做、做到哪一步、是否完成、能否导出，都在管理后台里。草稿与版本也保留在记录中。</p>
+        </header>
+
+        <div class="tabs-wrap team-tabs reveal">
+          <div class="tabs" role="tablist" aria-label="团队管理视图" id="team-tabs">
+            <button type="button" role="tab" id="tab-tasks" aria-controls="panel-tasks" aria-selected="true" tabindex="0">任务分配</button>
+            <button type="button" role="tab" id="tab-results" aria-controls="panel-results" aria-selected="false" tabindex="-1">标注与成果管理</button>
+          </div>
+        </div>
+
+        <div class="team-stage reveal">
+          <div class="layer-panel is-active" id="panel-tasks" role="tabpanel" aria-labelledby="tab-tasks" tabindex="0">
+            <figure class="media-card team-card">
+              <button class="media-open" type="button" data-lightbox data-title="任务分配" data-note="系统界面实录 · 演示数据已匿名化" aria-label="放大查看任务分配截图">
+                <img src="assets/img/bright-task-management.webp" srcset="assets/img/bright-task-management-960.webp 960w, assets/img/bright-task-management.webp 1440w" sizes="(max-width: 900px) 94vw, 1120px" width="1440" height="740" loading="lazy" decoding="async" alt="管理后台任务分配：多选切片与标注用户，任务列表显示分配时间、状态与完成 / 导出。">
+              </button>
+              <figcaption class="layer-caption">
+                <h3>任务分配</h3>
+                <p>多选切片、多选标注用户，按轮次创建任务；列表里看分配时间、状态与完成 / 导出。</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="layer-panel" id="panel-results" role="tabpanel" aria-labelledby="tab-results" tabindex="0" hidden>
+            <figure class="media-card team-card">
+              <button class="media-open" type="button" data-lightbox data-title="标注与成果管理" data-note="系统界面实录 · 演示数据已匿名化" aria-label="放大查看标注与成果管理截图">
+                <img src="assets/img/bright-annotation-results.webp" srcset="assets/img/bright-annotation-results-960.webp 960w, assets/img/bright-annotation-results.webp 1440w" sizes="(max-width: 900px) 94vw, 1120px" width="1440" height="760" loading="lazy" decoding="async" alt="管理后台标注管理：按用户与切片查看工作草稿、版本、区域数量与导出状态。">
+              </button>
+              <figcaption class="layer-caption">
+                <h3>标注与成果管理</h3>
+                <p>按用户、切片、备注与导出状态查询；工作草稿、分配任务与完成版本分开呈现。</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="formats reveal">
+          <span class="formats-label">导出格式</span>
+          <span class="format-chip">XML</span>
+          <span class="format-chip">GeoJSON</span>
+          <span class="format-chip">TIF</span>
+          <span class="fineprint">具体格式与可选范围以系统配置为准。</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" id="start" aria-labelledby="closing-title">
+      <div class="container">
+        <p class="section-index">06 / 开始使用</p>
+        <h2 id="closing-title">让阅片、标注与成果，<br>在同一处发生。</h2>
+        <p class="closing-lead">BRIGHT 面向病理阅片与标注团队。真实界面、清晰流程、可回看的版本。</p>
+        <div class="hero-actions closing-actions">
+          <a class="btn btn-primary" data-app-link href="http://192.168.20.43:8081/" target="_blank" rel="noopener">
+            进入 BRIGHT
+            <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#top">返回顶部</a>
+        </div>
+        <p class="fineprint closing-note">系统入口为内网地址，建议在院内网络环境访问。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#overview" aria-label="BRIGHT 智能阅片系统，回到顶部">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+          <span class="brand-name">BRIGHT</span>
+        </a>
+        <p>病理阅片与标注工作台</p>
+      </div>
+      <div class="footer-meta">
+        <p class="footer-version">版本 V0.3.1-261019</p>
+        <p>界面截图为系统界面实录，演示数据已匿名化。虚拟 IHC / 热图为虚拟示意，不用于临床诊断。</p>
+      </div>
+      <div class="footer-actions">
+        <button type="button" class="motion-switch" id="motion-toggle" aria-pressed="true" aria-label="动态效果开关">
+          <span class="switch" aria-hidden="true"></span>
+          <span>动态效果</span>
+        </button>
+        <p class="copyright">© 2026 BRIGHT</p>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title">
+    <div class="lightbox-inner">
+      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="关闭大图">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <div class="lightbox-media"><img id="lightbox-img" alt=""></div>
+      <div class="lightbox-bar">
+        <p id="lightbox-title"></p>
+        <p id="lightbox-note"></p>
+      </div>
+    </div>
+  </dialog>
+
+  <noscript>
+    <div class="noscript">本页面的交互需要 JavaScript。系统入口：<a href="http://192.168.20.43:8081/">192.168.20.43:8081</a>（内网）。</div>
+  </noscript>
+</body>
+</html>
