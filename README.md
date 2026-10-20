@@ -2,7 +2,7 @@
 
 BRIGHT 智能阅片系统的中文宣传页。零构建静态站点，部署在 GitHub Pages。
 
-**线上地址**：https://anglejuebi.github.io/BRIGHT-UX/
+**部署目标**：https://anglejuebi.github.io/BRIGHT-UX/（仓库创建并推送后生效）
 
 ---
 
